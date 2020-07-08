@@ -123,4 +123,21 @@ class DoublyLinkedList {
     this.length++;
     return true;
   }
+
+  /* Removes a node from the linked list at a specific position */
+  remove(index) {
+    if (index < 0 || index >= this.length) return undefined;
+    if (index === 0) return this.shift();
+    if (index === this.length - 1) return this.pop();
+
+    let removedNode = this.get(index);
+    let beforeNode = removedNode.prev;
+    let afterNode = beforeNode.next;
+    beforeNode.next = afterNode;
+    afterNode.prev = beforeNode;
+    removedNode.prev = null;
+    removedNode.next = null;
+    this.length--;
+    return removedNode;
+  }
 }
