@@ -74,4 +74,26 @@ class DoublyLinkedList {
     this.length++;
     return this;
   }
+
+  /* Retrieves a node by its position in the linked list */
+  get(index) {
+    if (index < 0 || index >= this.length) return null;
+    let count, curr;
+    if (index <= this.length / 2) {
+      count = 0;
+      curr = this.head;
+      while (count !== index) {
+        curr = curr.next;
+        count++;
+      }
+    } else {
+      count = this.length - 1;
+      curr = this.tail;
+      while (count !== index) {
+        curr = curr.prev;
+        count--;
+      }
+    }
+    return curr;
+  }
 }
