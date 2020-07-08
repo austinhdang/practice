@@ -96,4 +96,14 @@ class DoublyLinkedList {
     }
     return curr;
   }
+
+  /* Replaces the value of a node in the linked list */
+  set(index, val) {
+    let foundNode = this.get(index);
+    if (foundNode) {
+      foundNode.val = val;
+      return true;
+    }
+    return false;
+  }
 }
