@@ -36,7 +36,7 @@ class Stack {
     } else {
       this.first = oldFirst.next;
       this.size--;
-      return oldFirst.value;
     }
+    return oldFirst.value;
   }
 }
