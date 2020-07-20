@@ -86,4 +86,18 @@ class BinarySearchTree {
     traverse(this.root);
     return visited;
   }
+
+  /* Traverses the BST starting from the root and explores as far as possible
+   * along each branch before backtracking. Returns an array of visited nodes
+   * in the order that they were last visited */
+  DFSPostOrder() {
+    let visited = [];
+    function traverse(node) {
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+      visited.push(node.value);
+    }
+    traverse(this.root);
+    return visited;
+  }
 }
