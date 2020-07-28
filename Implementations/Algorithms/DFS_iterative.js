@@ -34,7 +34,7 @@ class Graph {
   dfs(root) {
     if (!root || !this.adjacencyList[root]) return null;
     const stack = [ root ];
-    const path = [];
+    const results = [];
     const visited = {};
     let vertex;
 
@@ -42,10 +42,10 @@ class Graph {
       vertex = stack.pop();
       if (!visited[vertex]) {
         visited[vertex] = true;
-        path.push(vertex);
+        results.push(vertex);
         stack.push(...this.adjacencyList[vertex]);
       }
     }
-    return path;
+    return results;
   }
 }

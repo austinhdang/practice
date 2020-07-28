@@ -33,14 +33,14 @@ class Graph {
 
   dfs(root) {
     if (!root || !this.adjacencyList[root]) return null;
-    const path = [];
+    const results = [];
     const visited = {};
     const adjacencyList = this.adjacencyList;
 
     function traverse(vertex) {
       if (!vertex) return null;
       visited[vertex] = true;
-      path.push(vertex);
+      results.push(vertex);
       adjacencyList[vertex].forEach((neighbor) => {
         if (!visited[neighbor]) {
           return traverse(neighbor);
@@ -49,6 +49,6 @@ class Graph {
     }
 
     traverse(root);
-    return path;
+    return results;
   }
 }
