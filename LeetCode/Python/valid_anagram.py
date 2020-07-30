@@ -3,10 +3,10 @@ Problem:
 Given two strings s and t , write a function to determine if t is an anagram of
 s.
 
-@param {str}:
+Params:
 s, t - strings to analyze
 
-@return {bool}:
+Returns:
 True if the second string is an anagram of the first. False otherwise.
 
 Note:
@@ -14,7 +14,7 @@ Note:
 """
 
 
-def isAnagram(s, t):
+def isAnagram(s: str, t: str) -> bool:
     # check if strings are the same length
     if len(s) != len(t):
         return False
