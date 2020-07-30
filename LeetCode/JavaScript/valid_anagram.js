@@ -3,9 +3,9 @@
  * Given two strings s and t , write a function to determine if t is an anagram
  * of s.
  * 
- * @param {string} s - the first string to analyze
- * @param {string} t - the second string to analyze
- * @return {boolean} - True if t is an anagram s. False otherwise.
+ * @param   {string} s - the first string to analyze
+ * @param   {string} t - the second string to analyze
+ * @returns {boolean}  - True if t is an anagram s. False otherwise.
  */
 
 var isAnagram = function(s, t) {
