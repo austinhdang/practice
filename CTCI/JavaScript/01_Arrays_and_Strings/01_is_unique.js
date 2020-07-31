@@ -5,8 +5,8 @@
  * Bonus:
  * Implement the algorithm without using a data structure.
  * 
- * @param   {string} str - String to analyze
- * @returns {boolean}      True if all unique characters. False otherwise.
+ * @param {string} str String to analyze
+ * @returns {boolean} True if all unique characters. False otherwise.
  */
 
 /* Using a data structure */
