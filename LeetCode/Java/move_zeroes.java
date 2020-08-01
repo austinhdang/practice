@@ -6,7 +6,7 @@
  * @return Do not return anything, modify nums in-place instead
  */
 
-class Solution {
+class Move_Zeroes {
   public void moveZeroes(int[] nums) {
     int nonZeroIdx = 0;
     for (int i = 0; i < nums.length; i++) {
