@@ -13,12 +13,6 @@
  * pale,  bale -> true
  * pale,  bake -> false
  * 
- * Hints:
- * - Start with the easy thing. Can you check each of the conditions separately?
- * - What is the relationship between the "insert character" option and the
- *   "remove character" option? Do these need to be two separate checks?
- * - Can you do all three checks in a single pass?
- * 
  * @param  {string} s1 The first string to analyze
  * @param  {string} s2 The second string to analyze
  * @return {boolean}   True if strings are 0 or 1 edit apart. False otherwise.
@@ -29,12 +23,15 @@ function isOneOrLessAway(s1, s2) {
   if (Math.abs(s1.length - s2.length) > 1) return false;
   let numEdits = 0;
   for (let i = 0, j = 0; i < s1.length && j < s2.length; i++, j++) {
+    // if characters aren't the same, there's an edit
     if (s1[i] !== s2[j]) {
+      // if one string is longer than the other, there's a deletion
       if (s1.length > s2.length) {
         j--;
       } else if (s1.length < s2.length) {
         i--;
       }
+      // if s1 and s2 are the same length, there's a replacement
       numEdits++;
     }
   }
