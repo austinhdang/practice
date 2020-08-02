@@ -20,11 +20,10 @@ function isPalindromePermutation(str) {
   for (let char of str) {
     // ignore spaces
     if (char !== ' ') {
-      // add character if it doesn't exist in the set
-      if (!chars.has(char)) chars.add(char);
-      // delete character if it exists in the set
-      chars.delete(char);
+      // add character to set if it isn't in set and delete from set if it is
+      !chars.has(char) ? chars.add(char) : chars.delete(char);
     }
   }
+  // if more than one chars have odd frequencies, not permutation of palindrome
   return chars.size <= 1;
 }
