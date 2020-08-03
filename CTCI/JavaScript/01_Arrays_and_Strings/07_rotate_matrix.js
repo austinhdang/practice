@@ -12,8 +12,8 @@
  *  [7, 8, 9]   |   [9, 6, 3]
  * ]            | ]
  * 
- * @param  {array} matrix Matrix to rotate
- * @return {array}        Rotated input matrix
+ * @param  {number[][]} matrix Matrix to rotate
+ * @return {number[][]}        Rotated input matrix
  */
 
 function rotateMatrix(matrix) {
@@ -32,4 +32,5 @@ function rotateMatrix(matrix) {
   for (let i = 0; i < matrix.length; i++) {
     matrix[i].reverse();
   }
+  return matrix;
 }
