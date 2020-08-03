@@ -9,7 +9,7 @@
  * @return The head of the singly linked list with the removed node
  */
 
-class SLL_Remove_Nth_From_End {
+class SLLRemoveNthFromEnd {
   public class ListNode {
     int val;
     ListNode next;
