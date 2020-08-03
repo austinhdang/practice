@@ -19,8 +19,6 @@
  */
 
 var plusOne = function(digits) {
-  // check if array is empty
-  if (!digits || digits.length === 0) return null;
   // loop through array backwards
   let i = digits.length - 1;
   let isAdding = true;
