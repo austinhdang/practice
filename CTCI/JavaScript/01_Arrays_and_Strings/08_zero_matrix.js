@@ -6,19 +6,33 @@
  * M = X dimension of matrix
  * N = Y dimension of matrix
  * 
- * Hints:
- * - If you just cleared the rows and columns as you found 0s, you'd likely
- *   wind up clearing the whole matrix. Try finding the cells with zeros first
- *   before making any changes to the matrix.
- * - Can you use O(N) additional space instead of O(N^2)? What information do
- *   you really need from the list of cells that are zero?
- * - You probably need some data storage to maintain a list of the rows and
- *   columns that need to be zeroed. Can you reduce the additional space usage
- *   to O(1) by using the matrix itself for data storage?
+ * Example 1:
+ * Input: 
+ * [
+ *   [1,1,1],
+ *   [1,0,1],
+ *   [1,1,1]
+ * ]
+ * Output: 
+ * [
+ *   [1,0,1],
+ *   [0,0,0],
+ *   [1,0,1]
+ * ]
  * 
- * [1, 2, 3]
- * [1, 0, 3]
- * [1, 2, 3]
+ * Example 2:
+ * Input: 
+ * [
+ *   [0,1,2,0],
+ *   [3,4,5,2],
+ *   [1,3,1,5]
+ * ]
+ * Output: 
+ * [
+ *   [0,0,0,0],
+ *   [0,4,5,0],
+ *   [0,3,1,0]
+ * ]
  * 
  * @param  {number[][]} matrix Matrix to be zeroed
  * @return {number[][]}        Zeroed matrix
