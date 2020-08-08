@@ -19,13 +19,12 @@
  */
 
 var firstUniqChar = function(s) {
-  if (!s) return -1;
-  if (s.length === 1) return 0;
-
   let lookup = {};
+  // add frequencies of characters in the lookup table
   for (let char of s) {
     !lookup[char] ? (lookup[char] = 1) : lookup[char]++;
   }
+  // loop through lookup table and return index of first unique character
   for (let char in lookup) {
     if (lookup[char] === 1) {
       return s.indexOf(char);
