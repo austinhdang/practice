@@ -6,7 +6,7 @@
  * Implement the algorithm without using a data structure.
  * 
  * @param {string} str String to analyze
- * @returns {boolean} True if all unique characters. False otherwise.
+ * @return True if all unique characters. False otherwise.
  */
 
 class IsUnique {
