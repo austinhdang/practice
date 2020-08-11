@@ -21,7 +21,7 @@
  * Follow up:
  * Could you do it without using any loop / recursion?
  * 
- * @param {number[]} n The integer to analyze
+ * @param {number} n The integer to analyze
  * @return {boolean}   True if the integer is a power of three. False otherwise.
  */
 
