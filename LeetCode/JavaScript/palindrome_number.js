@@ -28,15 +28,15 @@
 var isPalindrome = function(x) {
   // A negative number is not a palindrome
   if (x < 0) return false;
-  let num = x.toString();
-  let p1 = 0;
-  let p2 = num.length - 1;
-  /* Loop through integer string and compare digits using two pointers.
-   * Start from the outside and work inward. */
-  while (p1 < p2) {
-    if (num[p1] !== num[p2]) return false;
-    p1++;
-    p2--;
+
+  // Convert the number to a string and into an array of digits
+  const arr = String(x).split('');
+
+  /* Loop through array and compare digit equality by shifting and popping */
+  while (arr.length > 1) {
+    if (arr.shift() !== arr.pop()) {
+      return false;
+    }
   }
   return true;
 };
