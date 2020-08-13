@@ -40,3 +40,14 @@ var isPalindrome = function(x) {
   }
   return true;
 };
+
+var isPalindromeFollowUp = function(x) {
+  if (x < 0) return false;
+
+  /* Reverse the number and check if it equals the original */
+  let reversed = 0;
+  for (let i = x; i >= 1; i = Math.floor(i / 10)) {
+    reversed = reversed * 10 + i % 10;
+  }
+  return reversed === x;
+};
