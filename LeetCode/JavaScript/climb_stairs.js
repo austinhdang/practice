@@ -23,8 +23,8 @@
  * Constraints:
  * 1 <= n <= 45
  * 
- * @param {number} n
- * @return {number}
+ * @param {number} n Number of steps to reach the top
+ * @return {number} Number of distinct ways to climb to the top
  */
 
 /* Solution 1: Recursion with Memoization
