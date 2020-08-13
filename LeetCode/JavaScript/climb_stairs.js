@@ -27,7 +27,11 @@
  * @return {number}
  */
 
-var climbStairs = function(n) {
+/* Solution 1: Recursion with Memoization
+ * Time Complexity: O(n). Size of recursion tree can go up to n.
+ * Space Complexity: O(n). Depth of recursion tree can go up to n.
+ */
+var climbStairsMemo = function(n) {
   const memo = [];
   return climb(0, n, memo);
 
@@ -38,4 +42,20 @@ var climbStairs = function(n) {
     memo[i] = climb(i + 1, n, memo) + climb(i + 2, n, memo);
     return memo[i];
   }
+};
+
+/* Solution 2: Dynamic Programming
+ * Time Complexity: O(n). Single loop up to n.
+ * Space Complexity: O(n). dp array of size n used.
+ */
+var climbStairsDP = function(n) {
+  if (n === 1) return 1;
+
+  dp = [];
+  dp[1] = 1;
+  dp[2] = 2;
+  for (let i = 3; i <= n; i++) {
+    dp[i] = dp[i - 1] + dp[i - 2];
+  }
+  return dp[n];
 };
