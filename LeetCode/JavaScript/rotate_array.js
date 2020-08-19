@@ -22,5 +22,17 @@
  */
 
 var rotate = function(nums, k) {
-  //
+  k %= nums.length;
+  reverse(nums, 0, nums.length - 1); // Reverse all elements in the array
+  reverse(nums, 0, k - 1); // Reverse the first k elements
+  reverse(nums, k, nums.length - 1); // Reverse the rest of the n - k elements
 };
+
+/* Helper function to reverse a subset of an array */
+function reverse(nums, start, end) {
+  while (start < end) {
+    [ nums[start], nums[end] ] = [ nums[end], nums[start] ];
+    start++;
+    end--;
+  }
+}
