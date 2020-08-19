@@ -11,9 +11,15 @@
  * Input:  A -> B -> C -> D -> E -> C [the same C as earlier]
  * Output: C
  * 
+ * Solution 1 Specs:
  * N = |list|
  * Time Complexity: O(N)
  * Space Complexity: O(N)
+ * 
+ * Solution 2 Specs:
+ * N = |list|
+ * Time Complexity: O(N)
+ * Space Complexity: O(1)
  * 
  * @param {LinkedList} list The linked list to analyze
  * @return {Node} The node at the beginning of the loop
@@ -31,4 +37,28 @@ function detectLoopStartSet(list) {
   }
 
   return null;
+}
+
+/* Solution 2: Slow and Fast Pointers */
+function detectLoopStartRunners(list) {
+  if (!list) return null;
+
+  let slow = list,
+    fast = list;
+
+  while (slow.next && fast.next && fast.next.next) {
+    slow = slow.next;
+    fast = fast.next.next;
+    if (fast === slow) break;
+  }
+  // No cycle exists
+  if (!slow || slow !== fast) return null;
+
+  slow = list;
+  while (slow !== fast) {
+    slow = slow.next;
+    fast = fast.next;
+  }
+
+  return fast;
 }
