@@ -41,84 +41,101 @@
  * - Please do not use the built-in Queue library.
  */
 
+class Node {
+  constructor(val) {
+    this.val = val;
+    this.next = null;
+  }
+}
+
 /**
  * Initialize your data structure here. Set the size of the queue to be k.
- * @param {number} k
  */
-var MyCircularQueue = function(k) {
-  this.elements = [];
-  this.currentSize = 0;
-  this.maxSize = k;
-  this.head = 0;
-  this.tail = -1;
-};
+class MyCircularQueue {
+  constructor(k) {
+    this.maxCapacity = k;
+    this.size = 0;
+    this.head = null;
+    this.tail = null;
+  }
 
-/**
-* Insert an element into the circular queue. Return true if the operation is successful. 
-* @param {number} value
-* @return {boolean}
-*/
-MyCircularQueue.prototype.enQueue = function(value) {
-  if (this.currentSize >= this.maxSize) return false;
+  /**
+   * Insert an element into the circular queue. Return true if the operation is
+   * successful. 
+   * @param {number} value
+   * @return {boolean}
+   */
+  enQueue(value) {
+    if (this.isFull()) return false;
 
-  this.tail = ++this.tail % this.maxSize;
-  this.elements[this.tail] = value;
-  this.currentSize++;
-  return true;
-};
+    const node = new Node(value);
+    if (this.isEmpty()) {
+      this.head = node;
+      this.tail = node;
+    } else {
+      this.tail.next = node;
+      this.tail = this.tail.next;
+    }
+    this.size++;
+    return true;
+  }
 
-/**
-* Delete an element from the circular queue. Return true if the operation is successful.
-* @return {boolean}
-*/
-MyCircularQueue.prototype.deQueue = function() {
-  if (this.currentSize === 0) return false;
+  /**
+   * Delete an element from the circular queue. Return true if the operation is
+   * successful.
+   * @return {boolean}
+   */
+  deQueue(value) {
+    if (this.isEmpty()) return false;
 
-  this.elements[this.head] = null;
-  this.head = ++this.head % this.maxSize;
-  this.currentSize--;
-  return true;
-};
+    this.head = this.head.next;
+    if (!this.head) this.tail = null;
+    this.size--;
+    return true;
+  }
 
-/**
-* Get the front item from the queue.
-* @return {number}
-*/
-MyCircularQueue.prototype.Front = function() {
-  return this.currentSize === 0 ? -1 : this.elements[this.head];
-};
+  /**
+   * Get the front item from the queue.
+   * @return {number}
+   */
+  Front() {
+    if (this.isEmpty()) return -1;
+    return this.head.val;
+  }
 
-/**
-* Get the last item from the queue.
-* @return {number}
-*/
-MyCircularQueue.prototype.Rear = function() {
-  return this.currentSize === 0 ? -1 : this.elements[this.tail];
-};
+  /**
+   * Get the last item from the queue.
+   * @return {number}
+   */
+  Rear() {
+    if (this.isEmpty()) return -1;
+    return this.tail.val;
+  }
 
-/**
-* Checks whether the circular queue is empty or not.
-* @return {boolean}
-*/
-MyCircularQueue.prototype.isEmpty = function() {
-  return this.currentSize === 0;
-};
+  /**
+   * Checks whether the circular queue is empty or not.
+   * @return {boolean}
+   */
+  isEmpty() {
+    return this.head === null;
+  }
 
-/**
-* Checks whether the circular queue is full or not.
-* @return {boolean}
-*/
-MyCircularQueue.prototype.isFull = function() {
-  return this.currentSize === this.maxSize;
-};
+  /**
+   * Checks whether the circular queue is full or not.
+   * @return {boolean}
+   */
+  isFull() {
+    return this.size === this.maxCapacity;
+  }
+}
 
 /** 
-* Your MyCircularQueue object will be instantiated and called as such:
-* var obj = new MyCircularQueue(k)
-* var param_1 = obj.enQueue(value)
-* var param_2 = obj.deQueue()
-* var param_3 = obj.Front()
-* var param_4 = obj.Rear()
-* var param_5 = obj.isEmpty()
-* var param_6 = obj.isFull()
-*/
+ * Your MyCircularQueue object will be instantiated and called as such:
+ * var obj = new MyCircularQueue(k)
+ * var param_1 = obj.enQueue(value)
+ * var param_2 = obj.deQueue()
+ * var param_3 = obj.Front()
+ * var param_4 = obj.Rear()
+ * var param_5 = obj.isEmpty()
+ * var param_6 = obj.isFull()
+ */
