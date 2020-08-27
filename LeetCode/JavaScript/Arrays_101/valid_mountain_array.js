@@ -26,8 +26,8 @@
  * 0 <= A.length <= 10000
  * 0 <= A[i] <= 10000 
  * 
- * @param {number[]} A
- * @return {boolean}
+ * @param {number[]} A Array of integers to analyze.
+ * @return {boolean} True if A is a valid mountain array. False otherwise.
  */
 var validMountainArray = function(A) {
   let i = 0,
